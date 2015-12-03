@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<!-- The key difference between props and state is that state is internal and controlled by the component itself while props are external and controlled by whatever renders the component -->
+	<script type="text/jsx">
+
+		var TweetBox=React.createClass({
+			getInitialState: function()
+			{
+
+				return{
+
+					text: ""
+				};
+			},
+
+
+			handleChange: function(event) {
+				
+				this.setState({
+
+					text:event.target.value
+				});
+			},
+			render:function()
+			{
+
+				return(<div className="well clearfix">
+					<textarea className="form-control" onChange={this.handleChange}></textarea>
+					<br/>
+
+					<span>{this.state.text.length}</span>
+					<button className="btn btn-primary pull-right" disabled={this.state.text.length === 0} >Tweet</button>
+				
+				</div>);
+			}
+
+
+
+		});
+
+
+		React.render(<TweetBox/>, document.body);
+
+
+	</script>
+</body>
+</html>

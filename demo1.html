@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<!-- Component is basic building block;Each component has its own class -->
+	
+	<div id="abc"></div>
+	<div id="multiplecomponetandproperties"></div>
+	<script type="text/jsx">
+
+		var Componet= React.createClass({
+
+			render: function(){
+				return (<h2>My name is Shilpa</h2>);
+			}
+
+		});
+
+		React.render(<Componet/>, document.getElementById('abc'));
+
+		var Multiple= React.createClass({
+			render:function()
+			{
+				return(
+					<div>
+					<h2 className="name">My Name Is {this.props.name}</h2>
+						<p>{this.props.children}</p>
+						</div>
+
+
+					);
+			}
+
+		});
+		React.render(<div>
+			<Multiple name="Monica" />
+			<Multiple name="Chandler">He is a funny guy</Multiple> 
+			<Multiple name="Rachel" />
+		</div>,
+		document.getElementById('multiplecomponetandproperties')
+		);
+
+
+	</script>
+</body>
+</html>
+
